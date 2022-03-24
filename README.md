@@ -10,6 +10,15 @@ http://diplom.helpdesk38.ru/
 Внешняя ссылка на мониторинг grafana:
 http://diplom.helpdesk38.ru/grafana/
 
+Список рекомендуемых DNS А-записей в hosts файл, для доступа к внутренним ресурсам инфраструктуры:
+
+        192.168.10.253  openvpn.diplom.netology
+        192.168.10.254  gateway.diplom.netology
+        192.168.20.90   gitlab.diplom.netology
+        192.168.20.100  master1.diplom.netology
+        192.168.20.101  node1.diplom.netology
+        192.168.20.102  node2.diplom.netology
+
 ## Создание облачной инфраструктуры
 Конфигарционные файлы в директории [terraform/stage](https://github.com/kosmos38/diplom-yandexcloud/tree/main/terraform/stage), приватного репозитория.
 
@@ -60,11 +69,15 @@ http://diplom.helpdesk38.ru/grafana/
 
 ## Создание тестового приложения
 
-В директории [app])(https://github.com/kosmos38/diplom-yandexcloud/tree/main/app) приватного репозитория расположен Dockerfile и статическая веб страница, которая используется при сборке образа, образ опубликован в [DockerHub ](https://hub.docker.com/r/kosmos38/nginx_app)
+В директории [app](https://github.com/kosmos38/diplom-yandexcloud/tree/main/app) приватного репозитория расположен Dockerfile и статическая веб страница, которая используется при сборке образа, образ опубликован в [DockerHub ](https://hub.docker.com/r/kosmos38/nginx_app)
 
 ## Подготовка cистемы мониторинга и деплой приложения
 
+### Мониторинг
 Стек системы мониторинга был установлен в кластер при помощи оператора prometheus-operator с использованием helm charts, после установки были внесены изменения в сетевые сервисы, [манифесты здесь](https://github.com/kosmos38/diplom-yandexcloud/tree/main/prometheus-stack).
+
+Внешняя ссылка на мониторинг grafana:
+http://diplom.helpdesk38.ru/grafana/
 
 Скриншот обзорного dashboard в grafana:
 ![alt text](screenshots/grafana_cluster.png "grafana_cluster")​
@@ -72,4 +85,19 @@ http://diplom.helpdesk38.ru/grafana/
 Скриншот dashboard с загрузкой нод кластера:
 ![alt text](screenshots/grafana_nodes.png "grafana_nodes")​
 
+### Деплой приложения
+Деплой приложения в кластер осуществил при помощи helm chart, конфигурационные файлы в директории [helm/app](https://github.com/kosmos38/diplom-yandexcloud/tree/main/helm/nginx-app)
 
+Внешняя ссылка на тестовое приложение:
+http://diplom.helpdesk38.ru/
+
+Скриншот с установкой приложения:
+![alt text](screenshots/helm_install.png "helm_install")​
+
+Скриншот с изменением развертывания приложения:
+![alt text](screenshots/helm_upgrade.png "helm_upgrade")​
+
+
+## Установка и настройка CI/CD
+
+Для организации процессов CI/CD я выбрал Gitlab и развернул его в инфраструктуре отдельным инстансом, gitlub-runner запускается в кластере kubernetes.
