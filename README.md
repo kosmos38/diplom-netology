@@ -62,7 +62,7 @@ http://diplom.helpdesk38.ru/grafana/
 Скриншот успешной установки с помощью kubespray:
 ![alt text](screenshots/kubespray_install.png "kubespray_install")​
 
-Скриншот успешного выполнения kubectl get po -A, .kube/config настроен:
+Скриншот успешного выполнения kubectl get po -A, [.kube/config](https://github.com/kosmos38/diplom-yandexcloud/blob/main/configs/kubeconfig) настроен:
 ![alt text](screenshots/kube-config.png "kube-config")​
 
 Дополнительно для удобства администрирования установил Lens на локальную машину:
