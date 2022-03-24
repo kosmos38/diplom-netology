@@ -11,7 +11,7 @@ http://diplom.helpdesk38.ru/
 http://diplom.helpdesk38.ru/grafana/
 
 ## Создание облачной инфраструктуры
-Конфигарционные файлы в директории terraform/stage, приватного репозитория.
+Конфигарционные файлы в директории [terraform/stage](https://github.com/kosmos38/diplom-yandexcloud/tree/main/terraform/stage), приватного репозитория.
 
 Инфраструктура состоит из:
 
@@ -54,7 +54,11 @@ http://diplom.helpdesk38.ru/grafana/
 Скриншот успешного выполнения kubectl get po -A, .kube/config настроен:
 ![alt text](screenshots/kube-config.png "kube-config")​
 
+Дополнительно для удобства администрирования установил Lens на локальную машину:
+![alt text](screenshots/lens_overview.png "lens_overview")​
 
 
-Дополнительно для удобства администрирования установил Lens на локальную машину. 
+## Создание тестового приложения
+
+
 
