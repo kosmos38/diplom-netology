@@ -46,7 +46,7 @@ http://diplom.helpdesk38.ru/grafana/
 ## Создание Kubernetes кластера
 
 Кластер устанавливал самостоятельно при помощи готовой ansible конфигурации kubespray. 
-Конфигарционные файлы находятся в директории kubespray, приватного репозитория.
+Конфигарционные файлы находятся в директории [kubespray](https://github.com/kosmos38/diplom-yandexcloud/tree/main/kubespray), приватного репозитория.
 
 Скриншот успешной установки с помощью kubespray:
 ![alt text](screenshots/kubespray_install.png "kubespray_install")​
@@ -60,5 +60,16 @@ http://diplom.helpdesk38.ru/grafana/
 
 ## Создание тестового приложения
 
+В директории [app])(https://github.com/kosmos38/diplom-yandexcloud/tree/main/app) приватного репозитория расположен Dockerfile и статическая веб страница, которая используется при сборке образа, образ опубликован в [DockerHub ](https://hub.docker.com/r/kosmos38/nginx_app)
+
+## Подготовка cистемы мониторинга и деплой приложения
+
+Стек системы мониторинга был установлен в кластер при помощи оператора prometheus-operator с использованием helm charts, после установки были внесены изменения в сетевые сервисы, [манифесты здесь](https://github.com/kosmos38/diplom-yandexcloud/tree/main/prometheus-stack).
+
+Скриншот обзорного dashboard в grafana:
+![alt text](screenshots/grafana_cluster.png "grafana_cluster")​
+
+Скриншот dashboard с загрузкой нод кластера:
+![alt text](screenshots/grafana_nodes.png "grafana_nodes")​
 
 
