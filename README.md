@@ -8,7 +8,7 @@
 http://diplom.helpdesk38.ru/
 
 Внешняя ссылка на мониторинг grafana:
-diplom.helpdesk38.ru/grafana/
+http://diplom.helpdesk38.ru/grafana/
 
 ## Создание облачной инфраструктуры
 Конфигарционные файлы в директории terraform/stage, приватного репозитория.
