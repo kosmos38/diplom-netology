@@ -17,11 +17,20 @@
 Скриншот получившейся инфраструктуры в Яндекс.Облако:
 ![alt text](screenshots/yacloud_overview.png "yacloud_overview")​
 
+Все ресурсы создаются с помощью terraform с использованием Terraform Cloud в качестве backend с привязкой к репозиторию. Конфигурационный файл разбит на файлы:
 
+    * main.tf       описание провайдера и бэкенда
+    * instance.tf   описание выделяемых серверов
+    * network.tf    описание приватной, частной сети, создание ДНС записей и маршрутов
 
+Скриншот проекта в Terraform Cloud:
+![alt text](screenshots/tf_overview.png "tf_overview")​
 
+Коммиты в репозиторий привязанный к terraform, с изменениями инфраструктуры:
+![alt text](screenshots/github_tf_commits.png "github_tf_commits")​
 
-
+Применение изменений в репозитории со стороны Terraform Cloud:
+![alt text](screenshots/tf_network_dns_apply.png "tf_network_dns_apply")​
 
 
 
