@@ -19,6 +19,8 @@ http://diplom.helpdesk38.ru/grafana/
         192.168.20.101  node1.diplom.netology
         192.168.20.102  node2.diplom.netology
 
+Доступ к внутренним ресурсам инфраструктуры можно получить с помощью подключения к openvpn серверу.
+
 ## Создание облачной инфраструктуры
 Конфигарционные файлы в директории [terraform/stage](https://github.com/kosmos38/diplom-yandexcloud/tree/main/terraform/stage), приватного репозитория.
 
@@ -74,10 +76,13 @@ http://diplom.helpdesk38.ru/grafana/
 ## Подготовка cистемы мониторинга и деплой приложения
 
 ### Мониторинг
-Стек системы мониторинга был установлен в кластер при помощи оператора prometheus-operator с использованием helm charts, после установки были внесены изменения в сетевые сервисы, [манифесты здесь](https://github.com/kosmos38/diplom-yandexcloud/tree/main/prometheus-stack).
+Стек системы мониторинга был установлен в кластер при помощи оператора prometheus-operator с использованием helm charts, после установки были внесены изменения в сетевые сервисы, [манифесты здесь](https://github.com/kosmos38/diplom-yandexcloud/tree/main/manifests/prometheus-stack).
 
 Внешняя ссылка на мониторинг grafana:
 http://diplom.helpdesk38.ru/grafana/
+
+Внутренняя ссылка на мониторинг grafana:
+http://gateway.diplom.netology/grafana/
 
 Скриншот обзорного dashboard в grafana:
 ![alt text](screenshots/grafana_cluster.png "grafana_cluster")​
@@ -91,6 +96,10 @@ http://diplom.helpdesk38.ru/grafana/
 Внешняя ссылка на тестовое приложение:
 http://diplom.helpdesk38.ru/
 
+Внутренняя ссылка на тестовое приложение:
+http://gateway.diplom.netology/
+
+
 Скриншот с установкой приложения:
 ![alt text](screenshots/helm_install.png "helm_install")​
 
@@ -101,3 +110,15 @@ http://diplom.helpdesk38.ru/
 ## Установка и настройка CI/CD
 
 Для организации процессов CI/CD я выбрал Gitlab и развернул его в инфраструктуре отдельным инстансом, gitlub-runner запускается в кластере kubernetes.
+Файлы с манифестами и файл с настройками pipeline находится в директории [gitlab-local-repo]() приватного репозитория.
+
+С целью тестирования различных способов доставки, в процессах CD доставка осуществляется применением манифестов из репозитория без использования helm charts.
+
+Скриншот исполненного pipeline после коммита без указания тега:
+![alt text](screenshots/gitlab_build.png "gitlab_build")​
+
+Скриншот исполненного pipeline после коммита с указанием тега:
+![alt text](screenshots/gitlab_buid_deploy.png "gitlab_buid_deploy")​
+
+Процесс сборки приложения:
+![alt text](screenshots/gitlab_ci.png "gitlab_ci")​
