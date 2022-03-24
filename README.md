@@ -4,7 +4,15 @@
 В данном репозитории находится только теоритическая часть и описание инфраструктуры.
 Все конфигурационные файлы расположены в [приватном репозитории](https://github.com/kosmos38/diplom-yandexcloud), ссылку и доступ преподавателю предоставил лично.
 
+Внешняя ссылка на тестовое приложение:
+http://diplom.helpdesk38.ru/
+
+Внешняя ссылка на мониторинг grafana:
+diplom.helpdesk38.ru/grafana/
+
 ## Создание облачной инфраструктуры
+Конфигарционные файлы в директории terraform/stage, приватного репозитория.
+
 Инфраструктура состоит из:
 
     * nat-instance      gateway, bastionб NAT и единая точка входа из внешнего мира
@@ -34,4 +42,19 @@
 Применение изменений в репозитории со стороны Terraform Cloud:
 ![alt text](screenshots/tf_network_dns_apply.png "tf_network_dns_apply")​
 
+
+## Создание Kubernetes кластера
+
+Кластер устанавливал самостоятельно при помощи готовой ansible конфигурации kubespray. 
+Конфигарционные файлы находятся в директории kubespray, приватного репозитория.
+
+Скриншот успешной установки с помощью kubespray:
+![alt text](screenshots/kubespray_install.png "kubespray_install")​
+
+Скриншот успешного выполнения kubectl get po -A, .kube/config настроен:
+![alt text](screenshots/kube-config.png "kube-config")​
+
+
+
+Дополнительно для удобства администрирования установил Lens на локальную машину. 
 
