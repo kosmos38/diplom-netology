@@ -2,10 +2,16 @@
 # Студент Иванов Антон
 
 В данном репозитории находится только теоритическая часть и описание инфраструктуры.
-Все конфигурационные файлы расположены в [приватном репозитории](https://github.com/kosmos38/diplom-yandexcloud) , ссылку и доступ преподавателю предоставил лично.
+Все конфигурационные файлы расположены в [приватном репозитории](https://github.com/kosmos38/diplom-yandexcloud), ссылку и доступ преподавателю предоставил лично.
 
 ## Создание облачной инфраструктуры
-
+Инфраструктура состоит из:
+    * nat-instance      gateway, bastionб NAT и единая точка входа из внешнего мира
+    * openvpn-instance  vpn сервер для доступа к закрытой части сети
+    * k8s-master1       мастер кластера kubernetes
+    * k8s-node1         worker node kubernetes
+    * k8s-node2         worker node kubernetes
+    * gitlab-instance   сервер GitLab
 
 Скриншот получившейся инфраструктуры в Яндекс.Облако:
 ![alt text](screenshots/yacloud_overview.png "yacloud_overview")​
